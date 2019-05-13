@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Post_statistic</string>
+    <string name="view">Просмотры</string>
+    <string name="like">Лайки</string>
+    <string name="comments">Комментаторы</string>
+    <string name="marks">Отметки</string>
+    <string name="_0">0</string>
+</resources>
