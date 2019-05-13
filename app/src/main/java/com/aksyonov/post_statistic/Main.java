@@ -7,12 +7,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
+import com.aksyonov.post_statistic.models.Liker;
 import com.aksyonov.post_statistic.models.Likers;
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,12 +35,9 @@ public class Main extends AppCompatActivity {
         tv_responce = (TextView) findViewById(R.id.tv_responce);
         likers_list = (RecyclerView) findViewById(R.id.rv_likers);
 
-        LinearLayoutManager LayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager LayoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         likers_list.setLayoutManager(LayoutManager);
         likers_list.setHasFixedSize(true);
-
-        adapter = new Adapter(3);
-        likers_list.setAdapter(adapter);
 
 
 
@@ -53,57 +49,43 @@ public class Main extends AppCompatActivity {
 
     }
 
-    public class QueryTask extends AsyncTask <URL, Void, String>{
+    public class QueryTask extends AsyncTask<URL, Void, Likers>{
 
-        private String getlikersCount(String responce) {
+        private Likers getLikers(String responce) {
 
-            Gson gson = new Gson();
+//            Gson gson = new Gson();
 
+            Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
             Likers likers = gson.fromJson(responce, Likers.class);
 
-            String likersCount =String.valueOf(likers.meta.total);
-            return likersCount;
+           // String likersCount =String.valueOf(likers.meta.total);
+            return likers;
 
 
-
-           /* String likers_count="01";
-            try {
-                JSONObject jsonObject = new JSONObject(responce);
-                JSONArray jsonArray =jsonObject.getJSONArray("data");
-                JSONArray jsonArray2 =jsonObject.getJSONArray("meta");
-
-                JSONObject JScount = jsonArray2.getJSONObject(0);
-
-               // likers_count= jsonArray.getString("meta");
-               likers_count = String.valueOf(JScount.getInt("to"));
-
-                return likers_count;
-
-            } catch (JSONException e ){
-                e.printStackTrace();
-                return likers_count;
-            }*/
 
 
         }
 
         @Override
-        protected String doInBackground(URL... urls) {
-            String responce =null;
-
+        protected Likers doInBackground(URL... urls) {
             try {
-                responce = getResponceFromURL(urls[0]);
+                String responceFromURL = getResponceFromURL(urls[0]);
+                return getLikers(responceFromURL);
             } catch (IOException e) {
                 e.printStackTrace();
+                throw new RuntimeException(e);
             }
-            responce = getlikersCount(responce);
-            return responce;
-
         }
+
         @Override
-        protected void onPostExecute (String responce){
+        protected void onPostExecute (Likers likers){
          // tv_responce.setText(getlikers_count(responce));
-          tv_responce.setText(responce);
+          //tv_responce.setText(responce);
+
+
+            adapter = new Adapter(likers);
+            likers_list.setAdapter(adapter);
+
 
         }
 

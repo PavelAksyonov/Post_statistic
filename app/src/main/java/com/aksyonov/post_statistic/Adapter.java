@@ -9,59 +9,60 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.NumberViewHolder> {
+import com.aksyonov.post_statistic.models.Liker;
+import com.aksyonov.post_statistic.models.Likers;
+import com.squareup.picasso.Picasso;
 
-    private int number_items;
+public class Adapter extends RecyclerView.Adapter<Adapter.LikerViewHolder> {
 
-    public Adapter (int count){
-        number_items=count;
+    private final Likers likers;
+
+    public Adapter (Likers likers) {
+        this.likers = likers;
     }
 
 
     //@NonNull
     @Override
-    public NumberViewHolder onCreateViewHolder(/*@NonNull*/ ViewGroup parent, int viewType) {
+    public LikerViewHolder onCreateViewHolder(/*@NonNull*/ ViewGroup parent, int viewType) {
         Context context = parent.getContext();
 
-        int LayoutIdForListItems = R.layout.number_image_item;
+        int LayoutIdForListItems = R.layout.liker_item;
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view =inflater.inflate(LayoutIdForListItems, parent, false);
+        View view = inflater.inflate(LayoutIdForListItems, parent, false);
 
-        NumberViewHolder viewHolder = new NumberViewHolder(view);
+        LikerViewHolder viewHolder = new LikerViewHolder(view);
 
-        viewHolder.user_name.setText("test");
-        number_items ++;
         return viewHolder;
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NumberViewHolder numberViewHolder, int position) {
-        numberViewHolder.bind(position);
+    public void onBindViewHolder(@NonNull LikerViewHolder likerViewHolder, int position) {
+        Liker liker = likers.data.get(position);
+        likerViewHolder.user_name.setText(liker.nickname);
+//        likerViewHolder.user_name.setText(liker.avatarImage.urlSmall);
+        Picasso.get().load(liker.avatarImage.urlSmall).into(likerViewHolder.user_foto);
+
 
     }
 
     @Override
     public int getItemCount() {
-        return number_items;
+        return likers.meta.total;
     }
 
-    class NumberViewHolder extends RecyclerView.ViewHolder {
+    class LikerViewHolder extends RecyclerView.ViewHolder {
 
         TextView user_name;
-       // ImageView user_foto;
+       ImageView user_foto;
 
-        public NumberViewHolder(@NonNull View itemView) {
+        public LikerViewHolder(@NonNull View itemView) {
             super(itemView);
 
             user_name = itemView.findViewById(R.id.tv_user_name);
-           // user_foto = itemView.findViewById(R.id.iv_user_foto);
+            user_foto = itemView.findViewById(R.id.iv_user_foto);
 
-        }
-
-        void bind (int name){
-          //  user_name.setText(String.valueOf(name));
-            user_name.setText("test yy " + String.valueOf(number_items));
         }
     }
 }
