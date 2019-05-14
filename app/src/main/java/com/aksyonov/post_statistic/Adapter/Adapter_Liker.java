@@ -1,4 +1,4 @@
-package com.aksyonov.post_statistic;
+package com.aksyonov.post_statistic.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.aksyonov.post_statistic.Likers.Liker;
 import com.aksyonov.post_statistic.Likers.Likers;
+import com.aksyonov.post_statistic.R;
 import com.squareup.picasso.Picasso;
 
 public class Adapter_Liker extends RecyclerView.Adapter<Adapter_Liker.LikerViewHolder> {

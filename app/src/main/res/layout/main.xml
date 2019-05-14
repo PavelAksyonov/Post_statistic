@@ -134,7 +134,7 @@
     <LinearLayout
         android:id="@+id/LL_Mentions"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="40dp"
         android:layout_marginTop="7dp"
         android:background="@color/mainwhite"
         android:orientation="horizontal">
@@ -165,7 +165,7 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_mentions"
+                android:id="@+id/rv_mention"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginTop="30dp"
@@ -222,7 +222,7 @@
         </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/LL_bookmarks"
+        android:id="@+id/LL_Bookmarks"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/mainwhite"
@@ -234,7 +234,7 @@
             android:id="@+id/tv_bookmarks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/view"
+            android:text="@string/bookmars"
             android:layout_marginLeft="20dp"
             android:textSize="19sp" />
 

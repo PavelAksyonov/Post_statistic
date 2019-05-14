@@ -4,7 +4,8 @@
     <string name="like">Лайки</string>
     <string name="comments">Комментаторы</string>
     <string name="marks">Отметки</string>
-    <string name="_0">0</string>
+    <string name="_0">  </string>
     <string name="mentions">Отметки</string>
     <string name="reposters">Репосты</string>
+    <string name="bookmars">Закладки</string>
 </resources>
