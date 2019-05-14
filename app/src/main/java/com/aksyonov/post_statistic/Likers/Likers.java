@@ -1,6 +1,5 @@
-package com.aksyonov.post_statistic.models;
+package com.aksyonov.post_statistic.Likers;
 
-import java.net.URL;
 import java.util.List;
 
 public class Likers {

@@ -9,15 +9,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.aksyonov.post_statistic.models.Liker;
-import com.aksyonov.post_statistic.models.Likers;
+import com.aksyonov.post_statistic.Likers.Liker;
+import com.aksyonov.post_statistic.Likers.Likers;
 import com.squareup.picasso.Picasso;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.LikerViewHolder> {
+public class Adapter_Liker extends RecyclerView.Adapter<Adapter_Liker.LikerViewHolder> {
 
     private final Likers likers;
 
-    public Adapter (Likers likers) {
+    public Adapter_Liker(Likers likers) {
         this.likers = likers;
     }
 
@@ -53,7 +53,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.LikerViewHolder> {
     }
 
     class LikerViewHolder extends RecyclerView.ViewHolder {
-
         TextView user_name;
        ImageView user_foto;
 
