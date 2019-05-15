@@ -6,6 +6,7 @@
     android:background="@color/mainback"
     android:orientation="vertical"
     tools:context=".Main"
+    android:layout_marginTop="7dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"    >
 
@@ -14,7 +15,7 @@
     <LinearLayout
         android:id="@+id/LL_viewers"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:background="@color/mainwhite"
         android:orientation="horizontal"
 
@@ -25,57 +26,66 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/view"
+            android:padding="5dp"
             android:layout_marginLeft="20dp"
-            android:textSize="19sp" />
+            android:textSize="@dimen/title_size" />
 
         <TextView
             android:id="@+id/tv_view_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
+            android:padding="0dp"
             android:text="@string/_0"
-            android:textSize="19sp"/>
+            android:textSize="@dimen/title_size"/>
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/LL_likers"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="120dp"
         android:layout_marginTop="7dp"
         android:background="@color/mainwhite"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/like"
+        android:textSize="@dimen/title_size" />
+
+    <TextView
+        android:id="@+id/tv_likes_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:text="@string/_0"
+        android:textSize="@dimen/title_size" />
+</LinearLayout>
 
 
 
-
-        <TextView
-            android:id="@+id/tv_likes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:text="@string/like"
-            android:textSize="19sp" />
-
-        <TextView
-            android:id="@+id/tv_likes_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:text="@string/_0"
-            android:textSize="19sp" />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
             android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_likers"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
 
@@ -84,44 +94,49 @@
     </LinearLayout>
 
 
-        <LinearLayout
+    <LinearLayout
             android:id="@+id/LL_Commenters"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
+            android:layout_height="120dp"
             android:layout_marginTop="7dp"
             android:background="@color/mainwhite"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_commenters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/comments"
+        android:textSize="@dimen/title_size"/>
 
 
-            <TextView
-                android:id="@+id/tv_commenters"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:text="@string/comments"
-                android:textSize="19sp" />
+    <TextView
+        android:id="@+id/tv_commenters_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:text="@string/_0"
+        android:textSize="@dimen/title_size" />
+</LinearLayout>
 
-
-            <TextView
-                android:id="@+id/tv_commenters_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:layout_marginLeft="3dp"
-                android:text="@string/_0"
-                android:textSize="19sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
                 android:orientation="vertical">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_commenters"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:layout_marginTop="30dp"
                     android:orientation="horizontal">
 
 
@@ -137,38 +152,45 @@
         android:layout_height="40dp"
         android:layout_marginTop="7dp"
         android:background="@color/mainwhite"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/tv_mentions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:text="@string/mentions"
-            android:textSize="19sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_mentions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="@string/mentions"
+                android:textSize="@dimen/title_size" />
 
 
-        <TextView
-            android:id="@+id/tv_mentions_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:text="@string/_0"
-            android:textSize="19sp" />
+            <TextView
+                android:id="@+id/tv_mentions_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:text="@string/_0"
+                android:textSize="@dimen/title_size"/>
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
             android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_mention"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
 
@@ -176,44 +198,49 @@
         </LinearLayout>
     </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:id="@+id/LL_Reposters"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="7dp"
             android:background="@color/mainwhite"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_reposters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/reposters"
+        android:textSize="@dimen/title_size" />
 
 
-            <TextView
-                android:id="@+id/tv_reposters"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:text="@string/reposters"
-                android:textSize="19sp" />
+    <TextView
+        android:id="@+id/tv_reposters_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:text="@string/_0"
+        android:textSize="@dimen/title_size" />
 
+</LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_reposters_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:layout_marginLeft="3dp"
-                android:text="@string/_0"
-                android:textSize="19sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
                 android:orientation="vertical">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_reposters"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:layout_marginTop="30dp"
                     android:orientation="horizontal">
 
 
@@ -224,7 +251,7 @@
     <LinearLayout
         android:id="@+id/LL_Bookmarks"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:background="@color/mainwhite"
         android:orientation="horizontal"
 
@@ -235,8 +262,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bookmars"
+            android:padding="5dp"
             android:layout_marginLeft="20dp"
-            android:textSize="19sp" />
+            android:textSize="@dimen/title_size" />
 
         <TextView
             android:id="@+id/tv_bookmarks_count"
@@ -244,7 +272,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
             android:text="@string/_0"
-            android:textSize="19sp"/>
+            android:textSize="@dimen/title_size"/>
     </LinearLayout>
 
 

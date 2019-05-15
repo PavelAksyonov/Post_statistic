@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#00FF00"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="5dp">
 
     <ImageView
         android:id="@+id/iv_user_foto"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:gravity="center_horizontal|start" />
+        android:layout_width="@dimen/photo"
+        android:layout_height="@dimen/photo"
+        android:gravity="center_horizontal|center" />
 
 
     <TextView
@@ -20,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center"
-        android:textSize="14sp"
+        android:textSize="@dimen/name_size"
         tools:text="User Name" />
 
 </LinearLayout>

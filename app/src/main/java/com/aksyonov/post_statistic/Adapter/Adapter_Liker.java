@@ -13,10 +13,12 @@ import com.aksyonov.post_statistic.Likers.Liker;
 import com.aksyonov.post_statistic.Likers.Likers;
 import com.aksyonov.post_statistic.R;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 public class Adapter_Liker extends RecyclerView.Adapter<Adapter_Liker.LikerViewHolder> {
 
     private final Likers likers;
+
 
     public Adapter_Liker(Likers likers) {
         this.likers = likers;
@@ -43,6 +45,7 @@ public class Adapter_Liker extends RecyclerView.Adapter<Adapter_Liker.LikerViewH
         Liker liker = likers.data.get(position);
         likerViewHolder.user_name.setText(liker.nickname);
 //        likerViewHolder.user_name.setText(liker.avatarImage.urlSmall);
+
         Picasso.get().load(liker.avatarImage.urlSmall).into(likerViewHolder.user_foto);
 
 
